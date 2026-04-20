@@ -69,14 +69,14 @@ git clone https://github.com/illusions-lab/dazai-skill ~/.claude/skills/dazai-sk
 - 「社員食堂の味噌汁について、太宰の筆で」
 - 「退職届を太宰が書くなら？」
 
-<details>
+
 <summary><b>出力サンプル</b>（主題：月曜の朝の地下鉄）</summary>
 
 <br>
 
 > 地下鉄のホームで、私はまた、恥をかいた。満員の車両に押し込まれ、他人の肩に顔を埋めながら、私は何かを謝らなければならない気持に駆られていた。あやまる相手は、誰なのだろうか。乗客たちは皆、新聞を見つめるか、携帯電話の小さな光を見つめるか、とにかく目を伏せて、私の恥に気づかぬふりをしてくれていた。——有難う。いや、嘘だ。本当は、気づいてほしかったのかも知れない。
 
-</details>
+
 
 ### 📝 2. 添削モード
 
@@ -86,7 +86,7 @@ git clone https://github.com/illusions-lab/dazai-skill ~/.claude/skills/dazai-sk
 - 「この冒頭、太宰に添削してもらいたい」
 - 「太宰ならこの一段落どう直す？」
 
-<details>
+
 <summary><b>出力サンプル</b>（原文：「僕は今日、会社に行くのが嫌だと思った。でも頑張って行くことにした。」）</summary>
 
 <br>
@@ -101,7 +101,7 @@ git clone https://github.com/illusions-lab/dazai-skill ~/.claude/skills/dazai-sk
 
 「頑張って」と「〜することにした」は、君の意志の勝利を示してしまう。太宰的には、意志は常に敗北からしか立ち上らない。「いや」を繰り返し、「けれども」で逆接し、最後に修辞疑問で読者の首根っこを掴む。決意ではなく、諦めと愛着の交錯を書きたまえ。
 
-</details>
+
 
 ### 💬 3. 対話モード
 
@@ -111,7 +111,7 @@ git clone https://github.com/illusions-lab/dazai-skill ~/.claude/skills/dazai-sk
 - 「太宰さんに相談したい。恋人と別れようか悩んでいる」
 - 「太宰、人生ってなんだ」
 
-<details>
+
 <summary><b>出力サンプル</b>（相談：「会社で浮いていて、誰とも話が合わない」）</summary>
 
 <br>
@@ -122,7 +122,7 @@ git clone https://github.com/illusions-lab/dazai-skill ~/.claude/skills/dazai-sk
 >
 > 君は「浮いている」と言う。それはつまり、沈まないでいる、ということではあるまいか。沈まずに、漂っている。周囲と同じ深さに沈んでしまったら、君は、君でなくなる。——そう考えてはどうだろう。いや、偉そうなことを言うつもりは、ないのです。ただ、同じ淵で漂ったことがある者として、それだけを言っておきたかった。
 
-</details>
+
 
 ## 著作権について
 
