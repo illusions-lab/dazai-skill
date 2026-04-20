@@ -47,13 +47,13 @@
 **方法 1：skills CLI で追加**
 
 ```bash
-npx skills add illusions-lab/dazai-skill
+npx skills install Iktahana/dazai-skill
 ```
 
 **方法 2：Claude Code の skills ディレクトリに置く**
 
 ```bash
-git clone https://github.com/illusions-lab/dazai-skill ~/.claude/skills/dazai-skill
+git clone https://github.com/Iktahana/dazai-skill ~/.claude/skills/dazai-skill
 ```
 
 インストール後、Claude Code から `太宰治.skill をロードして` 等のトリガーで起動します。

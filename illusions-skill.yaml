@@ -20,7 +20,7 @@ tier_1:
 tier_2:
   description: 一人称告白体・恥と道化・死への近接——作品集278篇から蒸留された太宰治の憑依 skill。
   badges: [278篇, 293万字, 14層DNA, MIT]
-  install_command: "skills install Iktahana/dazai-skill"
+  install_command: "npx skills install Iktahana/dazai-skill"
 
 tier_3:
   modes:
