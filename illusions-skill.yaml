@@ -7,7 +7,7 @@ category: bungo
 tags: [japanese, literary, dazai, confession, 無頼派]
 license: MIT
 author: Iktahana
-repo: https://github.com/Iktahana/dazai-skill
+repo: https://github.com/illusions-lab/dazai-skill
 homepage: https://iktahana.github.io/dazai-skill
 
 # === Content tiers (cumulative; 上位 tier 欠落時は対応 asset を skip+warning) ===
@@ -20,7 +20,7 @@ tier_1:
 tier_2:
   description: 一人称告白体・恥と道化・死への近接——作品集278篇から蒸留された太宰治の憑依 skill。
   badges: [278篇, 293万字, 14層DNA, MIT]
-  install_command: "npx skills install Iktahana/dazai-skill"
+  install_command: "npx skills install illusions-lab/dazai-skill"
 
 tier_3:
   modes:
