@@ -142,9 +142,41 @@ const html = computed(() => {
   text-align: center;
 }
 @media (max-width: 768px) {
-  .readme { padding: 24px 20px 60px; }
-  .readme__inner { font-size: 15px; }
-  .readme__inner :deep(h2) { font-size: 24px; margin-top: 40px; }
-  .readme__inner :deep(h3) { font-size: 18px; }
+  .readme { padding: 32px 18px 56px; }
+  .readme__inner { font-size: 15px; line-height: 1.8; }
+  .readme__inner :deep(h2) {
+    font-size: 22px;
+    margin: 40px 0 16px;
+  }
+  .readme__inner :deep(h3) { font-size: 17px; margin-top: 28px; }
+  .readme__inner :deep(p) { margin: 14px 0; }
+  .readme__inner :deep(blockquote) {
+    padding: 4px 14px;
+    margin: 16px 0;
+    font-size: 14.5px;
+  }
+  .readme__inner :deep(table) {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .readme__inner :deep(th),
+  .readme__inner :deep(td) { padding: 8px 10px; }
+  .readme__inner :deep(pre) {
+    padding: 12px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+  }
+  .readme__inner :deep(pre code) { font-size: 13px; }
+  .readme__inner :deep(code) { font-size: 0.88em; }
+  .readme__inner :deep(hr) { margin: 36px 0; }
+  .readme__inner :deep(ul),
+  .readme__inner :deep(ol) { padding-left: 18px; }
+}
+@media (max-width: 420px) {
+  .readme { padding: 24px 14px 48px; }
+  .readme__inner :deep(h2) { font-size: 20px; }
 }
 </style>

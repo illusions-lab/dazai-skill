@@ -7,7 +7,6 @@ const props = defineProps<{ meta: SkillMeta }>()
 const portraitPath = computed(() => usePortraitPath(props.meta))
 const taglineLines = computed(() => {
   const t = props.meta.tier_1.tagline ?? ''
-  // 「、」で2行に分割
   const idx = t.indexOf('、')
   return idx > 0 ? [t.slice(0, idx + 1), t.slice(idx + 1)] : [t]
 })
@@ -15,10 +14,7 @@ const taglineLines = computed(() => {
 
 <template>
   <section class="hero">
-    <div class="hero__bg">
-      <figure class="hero__portrait" :style="{ backgroundImage: `url(${portraitPath})` }" />
-      <div class="hero__fade" />
-    </div>
+    <figure class="hero__portrait" :style="{ backgroundImage: `url(${portraitPath})` }" />
 
     <div class="hero__content">
       <h1 class="hero__title">{{ meta.tier_1.name_ja }}</h1>
@@ -35,72 +31,61 @@ const taglineLines = computed(() => {
         </span>
       </div>
     </div>
-
   </section>
 </template>
 
 <style scoped>
 .hero {
-  position: relative;
+  display: grid;
+  grid-template-columns: minmax(280px, 38%) 1fr;
+  align-items: stretch;
   min-height: 640px;
-  overflow: hidden;
   border-bottom: 1px solid #1f1f1f;
   background: #0d0d0d;
 }
-.hero__bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
 .hero__portrait {
-  position: absolute;
-  top: 0; left: 0; bottom: 0;
-  width: 35%;
+  margin: 0;
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
-}
-.hero__fade {
-  position: absolute;
-  top: 0; left: 0; bottom: 0;
-  width: 55%;
-  background: linear-gradient(to right,
-    rgba(13, 13, 13, 0) 0%,
-    rgba(13, 13, 13, 0) 20%,
-    #0d0d0d 100%);
+  background-color: #111;
 }
 .hero__content {
-  position: relative;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 120px 48px 80px;
+  padding: 96px 48px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: right;
+  max-width: 760px;
+  margin-left: auto;
+  width: 100%;
 }
 .hero__title {
   font-family: var(--font-title);
-  font-size: clamp(56px, 8vw, 120px);
+  font-size: clamp(48px, 7vw, 112px);
   line-height: 1;
   margin: 0;
   color: #f5f5f5;
 }
 .hero__skill {
   font-family: var(--font-mono);
-  font-size: clamp(32px, 5vw, 64px);
+  font-size: clamp(28px, 4.5vw, 60px);
   color: var(--accent);
   margin: 8px 0 32px;
   line-height: 1;
 }
 .hero__tagline {
   font-family: var(--font-body);
-  font-size: clamp(16px, 1.8vw, 28px);
+  font-size: clamp(16px, 1.6vw, 26px);
   color: #cccccc;
-  line-height: 1.4;
+  line-height: 1.5;
   margin: 0 0 24px;
 }
 .hero__tagline p { margin: 0; }
 .hero__description {
   color: #aaa;
-  font-size: 16px;
+  font-size: 15px;
+  line-height: 1.7;
   margin: 0 0 24px;
   max-width: 540px;
   margin-left: auto;
@@ -119,10 +104,46 @@ const taglineLines = computed(() => {
   font-size: 13px;
   color: var(--accent);
 }
+
 @media (max-width: 768px) {
-  .hero { min-height: 520px; }
-  .hero__portrait { width: 55%; }
-  .hero__content { padding: 80px 24px 60px; }
-  .hero__description { max-width: 100%; }
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .hero__portrait {
+    height: 56vh;
+    min-height: 320px;
+    max-height: 480px;
+    background-position: center 20%;
+  }
+  .hero__content {
+    padding: 40px 22px 56px;
+    text-align: left;
+    max-width: none;
+    margin-left: 0;
+  }
+  .hero__title {
+    font-size: clamp(44px, 12vw, 64px);
+  }
+  .hero__skill {
+    font-size: clamp(24px, 7vw, 36px);
+    margin: 6px 0 24px;
+  }
+  .hero__tagline {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .hero__description {
+    max-width: 100%;
+    margin-left: 0;
+    font-size: 14px;
+  }
+  .hero__badges {
+    justify-content: flex-start;
+  }
+  .badge {
+    font-size: 12px;
+    padding: 3px 12px;
+  }
 }
 </style>
