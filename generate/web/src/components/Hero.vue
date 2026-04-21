@@ -68,22 +68,15 @@ const taglineLines = computed(() => {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 14px;
-  border: 1px solid #2a2a2a;
-  border-radius: 999px;
-  background: rgba(13, 13, 13, 0.7);
+  padding: 6px 4px;
   color: #cfcfcf;
   font-family: var(--font-mono);
   font-size: 13px;
   text-decoration: none;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  transition: color 0.15s;
 }
 .hero__github:hover {
   color: var(--accent);
-  border-color: var(--accent);
-  background: rgba(139, 0, 0, 0.08);
 }
 .hero__github svg { display: block; }
 .hero__portrait {
@@ -189,9 +182,9 @@ const taglineLines = computed(() => {
     padding: 3px 12px;
   }
   .hero__github {
-    right: 16px;
-    bottom: 16px;
-    padding: 6px 12px;
+    right: 14px;
+    bottom: 12px;
+    padding: 4px;
     font-size: 12px;
   }
   .hero__github svg { width: 16px; height: 16px; }
