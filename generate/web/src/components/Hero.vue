@@ -31,11 +31,29 @@ const taglineLines = computed(() => {
         </span>
       </div>
     </div>
+
+    <a
+      v-if="meta.repo"
+      :href="meta.repo"
+      class="hero__github"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="View source on GitHub"
+    >
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M12 .5C5.73.5.66 5.57.66 11.84c0 5.01 3.25 9.26 7.76 10.76.57.1.78-.25.78-.55 0-.27-.01-.99-.02-1.94-3.16.69-3.83-1.52-3.83-1.52-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.53-2.52-.29-5.18-1.26-5.18-5.61 0-1.24.45-2.26 1.17-3.05-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.16.91-.25 1.89-.38 2.86-.38.97 0 1.95.13 2.86.38 2.18-1.47 3.14-1.16 3.14-1.16.62 1.59.23 2.76.11 3.05.73.79 1.17 1.81 1.17 3.05 0 4.36-2.66 5.32-5.19 5.6.41.36.78 1.06.78 2.13 0 1.54-.01 2.78-.01 3.16 0 .31.21.66.79.55 4.5-1.5 7.74-5.75 7.74-10.76C23.34 5.57 18.27.5 12 .5Z"
+        />
+      </svg>
+      <span>GitHub</span>
+    </a>
   </section>
 </template>
 
 <style scoped>
 .hero {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(280px, 38%) 1fr;
   align-items: stretch;
@@ -43,6 +61,31 @@ const taglineLines = computed(() => {
   border-bottom: 1px solid #1f1f1f;
   background: #0d0d0d;
 }
+.hero__github {
+  position: absolute;
+  right: 24px;
+  bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid #2a2a2a;
+  border-radius: 999px;
+  background: rgba(13, 13, 13, 0.7);
+  color: #cfcfcf;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.hero__github:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(139, 0, 0, 0.08);
+}
+.hero__github svg { display: block; }
 .hero__portrait {
   margin: 0;
   background-size: cover;
@@ -145,5 +188,12 @@ const taglineLines = computed(() => {
     font-size: 12px;
     padding: 3px 12px;
   }
+  .hero__github {
+    right: 16px;
+    bottom: 16px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .hero__github svg { width: 16px; height: 16px; }
 }
 </style>
