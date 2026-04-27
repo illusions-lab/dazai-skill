@@ -13,8 +13,7 @@ function stripGithubAlerts(md: string): string {
 
 const html = computed(() => {
   marked.setOptions({ gfm: true, breaks: false })
-  const cleaned = stripGithubAlerts(stripHeaderImage(readmeRaw))
-  return marked.parse(cleaned) as string
+  return marked.parse(stripGithubAlerts(stripHeaderImage(readmeRaw))) as string
 })
 </script>
 
@@ -26,157 +25,166 @@ const html = computed(() => {
 
 <style scoped>
 .readme {
-  padding: 40px 24px 80px;
   max-width: 860px;
   margin: 0 auto;
-}
-.readme__inner {
+  padding: 40px 24px 80px;
   font-family: var(--font-body);
   color: #cfcfcf;
-  font-size: 16px;
   line-height: 1.85;
+  font-size: 16px;
 }
-.readme__inner :deep(h1),
+
+.readme__inner :deep(h1) { display: none; }
+
 .readme__inner :deep(h2),
-.readme__inner :deep(h3) {
+.readme__inner :deep(h3),
+.readme__inner :deep(h4) {
   font-family: var(--font-title);
   color: #f5f5f5;
-  margin: 56px 0 20px;
   line-height: 1.3;
 }
-.readme__inner :deep(h1) { display: none; }
+
 .readme__inner :deep(h2) {
   font-size: 28px;
+  margin: 56px 0 20px;
   padding-bottom: 8px;
   border-bottom: 1px solid #1f1f1f;
 }
+
 .readme__inner :deep(h3) {
   font-size: 20px;
+  margin: 40px 0 12px;
   color: var(--accent);
 }
-.readme__inner :deep(p) { margin: 16px 0; }
+
+.readme__inner :deep(h4) {
+  font-size: 16px;
+  margin: 28px 0 10px;
+}
+
+.readme__inner :deep(p) { margin: 0 0 16px; }
+
 .readme__inner :deep(a) {
   color: var(--accent);
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: border-color 0.15s;
+  transition: border-color .15s;
 }
 .readme__inner :deep(a:hover) { border-bottom-color: var(--accent); }
-.readme__inner :deep(strong) { color: #f5f5f5; font-weight: 600; }
-.readme__inner :deep(em) { color: #bbb; }
-.readme__inner :deep(blockquote) {
-  border-left: 3px solid var(--accent);
-  padding: 4px 20px;
-  margin: 20px 0;
-  color: #b8b8b8;
-  background: rgba(139, 0, 0, 0.04);
-  border-radius: 0 4px 4px 0;
-}
-.readme__inner :deep(blockquote p) { margin: 8px 0; }
+
+.readme__inner :deep(strong) { color: #f5f5f5; }
+
 .readme__inner :deep(code) {
   font-family: var(--font-mono);
-  font-size: 0.9em;
   background: #141414;
-  padding: 2px 6px;
-  border-radius: 3px;
   color: #e5a0a0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.88em;
 }
+
 .readme__inner :deep(pre) {
-  background: #0a0a0a;
+  background: #141414;
   border: 1px solid #1f1f1f;
   border-radius: 8px;
-  padding: 16px 20px;
+  padding: 16px 18px;
   overflow-x: auto;
   margin: 20px 0;
 }
+
 .readme__inner :deep(pre code) {
-  background: transparent;
+  background: none;
+  color: #dcdcdc;
   padding: 0;
-  color: #e5e5e5;
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1.6;
 }
-.readme__inner :deep(table) {
-  width: 100%;
-  border-collapse: collapse;
+
+.readme__inner :deep(blockquote) {
+  border-left: 3px solid var(--accent);
+  background: rgba(229, 160, 160, 0.06);
+  padding: 12px 16px;
   margin: 20px 0;
-  font-size: 15px;
+  color: #bcbcbc;
+  border-radius: 0 6px 6px 0;
 }
-.readme__inner :deep(th),
-.readme__inner :deep(td) {
-  padding: 10px 14px;
-  border: 1px solid #1f1f1f;
-  text-align: left;
+.readme__inner :deep(blockquote p:last-child) { margin-bottom: 0; }
+
+.readme__inner :deep(hr) {
+  border: none;
+  border-top: 1px solid #1f1f1f;
+  margin: 56px 0;
 }
-.readme__inner :deep(th) {
-  background: #141414;
-  color: #f5f5f5;
-  font-family: var(--font-title);
-  font-weight: 600;
-}
-.readme__inner :deep(td) {
-  background: #0f0f0f;
-}
+
 .readme__inner :deep(ul),
 .readme__inner :deep(ol) {
-  padding-left: 22px;
-  margin: 16px 0;
+  padding-left: 24px;
+  margin: 0 0 18px;
 }
 .readme__inner :deep(li) { margin: 6px 0; }
-.readme__inner :deep(hr) {
-  border: 0;
-  border-top: 1px solid #1f1f1f;
-  margin: 48px 0;
-}
+
 .readme__inner :deep(img) {
   max-width: 100%;
   height: auto;
   border-radius: 6px;
 }
-.readme__inner :deep(summary) {
-  cursor: pointer;
-  font-family: var(--font-title);
-  color: var(--accent);
-  margin: 16px 0 8px;
+
+.readme__inner :deep(table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
 }
-.readme__inner :deep(div[align='center']) {
-  text-align: center;
+.readme__inner :deep(th),
+.readme__inner :deep(td) {
+  border: 1px solid #1f1f1f;
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+  background: #0f0f0f;
 }
+.readme__inner :deep(th) {
+  background: #141414;
+  color: #f5f5f5;
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
-  .readme { padding: 32px 18px 56px; }
-  .readme__inner { font-size: 15px; line-height: 1.8; }
+  .readme {
+    padding: 32px 18px 60px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
   .readme__inner :deep(h2) {
-    font-size: 22px;
-    margin: 40px 0 16px;
+    font-size: 24px;
+    margin: 44px 0 16px;
   }
-  .readme__inner :deep(h3) { font-size: 17px; margin-top: 28px; }
-  .readme__inner :deep(p) { margin: 14px 0; }
-  .readme__inner :deep(blockquote) {
-    padding: 4px 14px;
-    margin: 16px 0;
-    font-size: 14.5px;
+  .readme__inner :deep(h3) {
+    font-size: 18px;
+    margin: 32px 0 10px;
   }
-  .readme__inner :deep(table) {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    font-size: 14px;
-    white-space: nowrap;
-  }
-  .readme__inner :deep(th),
-  .readme__inner :deep(td) { padding: 8px 10px; }
   .readme__inner :deep(pre) {
     padding: 12px 14px;
     border-radius: 6px;
-    font-size: 13px;
   }
-  .readme__inner :deep(pre code) { font-size: 13px; }
-  .readme__inner :deep(code) { font-size: 0.88em; }
-  .readme__inner :deep(hr) { margin: 36px 0; }
-  .readme__inner :deep(ul),
-  .readme__inner :deep(ol) { padding-left: 18px; }
+  .readme__inner :deep(pre code) { font-size: 12px; }
+  .readme__inner :deep(table) {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 }
+
 @media (max-width: 420px) {
-  .readme { padding: 24px 14px 48px; }
-  .readme__inner :deep(h2) { font-size: 20px; }
+  .readme {
+    padding: 24px 14px 48px;
+    font-size: 14.5px;
+  }
+  .readme__inner :deep(h2) { font-size: 22px; }
+  .readme__inner :deep(h3) { font-size: 17px; }
+  .readme__inner :deep(blockquote) {
+    padding: 10px 12px;
+    margin: 16px 0;
+  }
 }
 </style>
