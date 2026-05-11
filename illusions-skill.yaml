@@ -1,36 +1,37 @@
 schema_version: "1"
 
 # === Marketplace fields ===
-id: dazai-skill
-name: 太宰治.skill
+id: bungo-skill-template
+name: 文豪.skill.template
 category: bungo
-tags: [japanese, literary, dazai, confession, 無頼派]
+tags: [japanese, literary, template]
 license: MIT
-author: Iktahana
-repo: https://github.com/illusions-lab/dazai-skill
-homepage: https://iktahana.github.io/dazai-skill
+author: illusions-lab
+repo: https://github.com/illusions-lab/bungo-skill-template
+homepage: https://illusions-lab.github.io/bungo-skill-template
 
 # === Content tiers (cumulative; 上位 tier 欠落時は対応 asset を skip+warning) ===
 tier_1:
-  name_ja: 太宰治
-  name_romaji: Dazai Osamu
-  tagline: 太宰治の文章DNAを、59KBのプロンプトへと蒸留しました。
-  key_kanji: 恥
+  name_ja: 文豪
+  name_romaji: Bungo
+  tagline: 作家の文体DNAを、14層へと蒸留するためのテンプレート。
+  portrait: sources/portrait.jpg
+  key_kanji: 幻
 
 tier_2:
-  description: 一人称告白体・恥と道化・死への近接——作品集278篇から蒸留された太宰治の憑依 skill。
-  badges: [278篇, 293万字, 14層DNA, MIT]
-  install_command: "npx skills install illusions-lab/dazai-skill"
+  description: 文豪 skill を新規作成するための雛形。
+  badges: [テンプレート, 14層DNA, MIT]
+  install_command: "npx skills install illusions-lab/bungo-skill-template"
 
 tier_3:
   modes:
-    - { icon: writing, name: 書く, desc: 太宰の語彙・構文で新規生成 }
-    - { icon: editing, name: 添削, desc: 原稿を太宰の美学で赤入れ }
-    - { icon: dialogue, name: 対話, desc: 太宰の世界観で共感的に応じる }
+    - { icon: writing, name: 執筆, desc: 作家の声で新規生成 }
+    - { icon: editing, name: 添削, desc: 原稿を作家調に }
+    - { icon: dialogue, name: 対話, desc: 作家の人格で相談 }
   key_features:
-    - 14層×5系統（聲・眼・骨・魂・界）の文体DNA
-    - 書く／添削／対話の3モード
-    - 作品集278篇・約293万字から抽出
+    - 14層×5系統の文体DNA
+    - 3つの動作モード
+    - 統計データに基づく分析
 
 tier_4:
   philosophy_ref: sources/content/philosophy.md
@@ -46,13 +47,13 @@ tier_5:
   full_layers_ref: SKILL.md
   citations_ref: sources/content/citations.md
   methodology: |
-    Corpus: 青空文庫 太宰治 作品集 278 篇（人物番号 000035、約 293 万字）
-    Stylometry: fugashi + unidic-lite による形態素解析 + 統計量
-    Layers: 14層 × 5カテゴリ（聲・眼・骨・魂・界）
+    Stylometry: 形態素解析 + 統計
+    Corpus: 青空文庫 全作品
+    Layers: 14層 × 5カテゴリ
 
 # === Visual design tokens ===
 design:
-  accent_color: "#8B0000"
+  accent_color: "#6B7280"
   background: "#0d0d0d"
   noise_opacity: 0.04
   font_title: "Zen Antique"
